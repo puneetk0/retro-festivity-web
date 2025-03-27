@@ -1,92 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 262 100% 70%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 184 100% 50%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 335 100% 70%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.2rem;
   }
 }
 
@@ -94,8 +43,166 @@
   * {
     @apply border-border;
   }
+  
+  html, body {
+    @apply bg-retro-black text-white;
+    -webkit-font-smoothing: none;
+    scroll-behavior: smooth;
+  }
+  
+  #root {
+    @apply max-w-full m-0 p-0;
+  }
+}
 
-  body {
-    @apply bg-background text-foreground;
+@layer components {
+  .retro-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .retro-text {
+    @apply font-retro text-sm md:text-base tracking-wide;
+  }
+  
+  .pixel-text {
+    @apply font-pixel;
+  }
+  
+  .retro-title {
+    @apply font-retro text-xl md:text-2xl lg:text-3xl tracking-wide;
+  }
+  
+  .retro-subtitle {
+    @apply font-vt323 text-lg md:text-xl lg:text-2xl;
+  }
+  
+  .terminal-text {
+    @apply font-vt323 text-base md:text-lg;
+  }
+  
+  .crt-screen {
+    @apply relative overflow-hidden bg-retro-black;
+  }
+  
+  .crt-screen::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full pointer-events-none z-10;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+  }
+  
+  .crt-screen::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-10;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.1),
+      rgba(0, 255, 0, 0.1),
+      rgba(0, 0, 255, 0.1)
+    );
+  }
+  
+  .scanline {
+    @apply absolute top-0 left-0 w-full h-[10px] z-20 opacity-20 pointer-events-none;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 100%
+    );
+    animation: scanline 10s linear infinite;
+  }
+  
+  .retro-grid {
+    @apply absolute top-0 left-0 w-full h-[200%];
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    transform: perspective(300px) rotateX(30deg);
+    animation: grid-flow 20s linear infinite;
+  }
+  
+  .neon-border {
+    @apply relative border border-transparent rounded-sm overflow-hidden;
+  }
+  
+  .neon-border::before {
+    content: "";
+    @apply absolute inset-0 z-[-1] rounded-sm;
+    background: linear-gradient(90deg, var(--neon-color-1, #ff71ce), var(--neon-color-2, #0ff));
+    padding: 2px;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  .neon-text {
+    @apply font-retro animate-neon-pulse;
+  }
+  
+  .glitch-text {
+    @apply font-retro relative inline-block;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+      0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: animate-text-flicker 4s linear infinite;
+  }
+  
+  .pixelated-image {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  .retro-button {
+    @apply bg-retro-blue text-retro-black font-retro text-sm py-3 px-6
+      border-2 border-b-4 border-r-4 border-white
+      hover:border-b-2 hover:border-r-2 hover:translate-y-[2px] hover:translate-x-[2px]
+      active:bg-[#00ccff] active:translate-y-[4px] active:translate-x-[4px] active:border-b-0 active:border-r-0
+      transition-all duration-100 focus:outline-none cursor-pointer;
+  }
+  
+  .retro-button-red {
+    @apply bg-retro-red text-white font-retro text-sm py-3 px-6
+      border-2 border-b-4 border-r-4 border-white
+      hover:border-b-2 hover:border-r-2 hover:translate-y-[2px] hover:translate-x-[2px]
+      active:bg-[#ff3333] active:translate-y-[4px] active:translate-x-[4px] active:border-b-0 active:border-r-0
+      transition-all duration-100 focus:outline-none cursor-pointer;
+  }
+  
+  .retro-button-green {
+    @apply bg-retro-green text-retro-black font-retro text-sm py-3 px-6
+      border-2 border-b-4 border-r-4 border-white
+      hover:border-b-2 hover:border-r-2 hover:translate-y-[2px] hover:translate-x-[2px]
+      active:bg-[#00cc88] active:translate-y-[4px] active:translate-x-[4px] active:border-b-0 active:border-r-0
+      transition-all duration-100 focus:outline-none cursor-pointer;
+  }
+  
+  .retro-button-purple {
+    @apply bg-retro-purple text-white font-retro text-sm py-3 px-6
+      border-2 border-b-4 border-r-4 border-white
+      hover:border-b-2 hover:border-r-2 hover:translate-y-[2px] hover:translate-x-[2px]
+      active:bg-[#9933ff] active:translate-y-[4px] active:translate-x-[4px] active:border-b-0 active:border-r-0
+      transition-all duration-100 focus:outline-none cursor-pointer;
+  }
+  
+  .retro-card {
+    @apply bg-retro-darkblue border-2 border-retro-blue p-4 rounded-sm;
+    box-shadow: 5px 5px 0px rgba(0, 255, 255, 0.5), 
+                inset 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+  
+  .retro-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .page-transition-wrapper {
+    @apply animate-page-transition-in;
   }
 }
