@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -35,13 +34,8 @@ const Navbar = () => {
       <div className="retro-container flex justify-between items-center">
         <Link 
           to="/" 
-          className="flex items-center hover:animate-text-flicker"
+          className="hover:animate-text-flicker"
         >
-          <img 
-            src="/lovable-uploads/091599ca-dd1e-413f-90e2-6e0d0141d700.png" 
-            alt="Neutron Logo" 
-            className="h-10 mr-2" 
-          />
           <span className="font-retro text-retro-blue text-xl md:text-2xl">
             NEU<span className="text-retro-pink">TRON</span> '24
           </span>
