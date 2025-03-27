@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -37,7 +38,7 @@ const Navbar = () => {
           className="hover:animate-text-flicker"
         >
           <span className="font-retro text-retro-blue text-xl md:text-2xl">
-            NEU<span className="text-retro-pink">TRON</span> '24
+            NEU<span className="text-retro-pink">TRON</span> '25
           </span>
         </Link>
 

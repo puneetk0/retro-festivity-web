@@ -7,7 +7,14 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
   const fullText = 'WELCOME TO THE MOST INNOVATIVE TECH FEST OF THE YEAR';
   const [counter, setCounter] = useState(0);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   
+  // Terminal text typing effect
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     
@@ -20,6 +27,33 @@ const Hero = () => {
     
     return () => clearTimeout(timeout);
   }, [counter, fullText]);
+  
+  // Countdown timer effect
+  useEffect(() => {
+    const targetDate = new Date('April 12, 2025 00:00:00').getTime();
+    
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+    
+    // Initial calculation
+    updateCountdown();
+    
+    // Update countdown every second
+    const interval = setInterval(updateCountdown, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   return (
     <section className="min-h-screen pt-24 crt-screen">
@@ -34,7 +68,7 @@ const Hero = () => {
             className="h-24 md:h-32 mb-4 animate-glow-pulse" 
           />
           <h1 className="retro-title text-retro-pink mb-2 animate-glow-pulse">
-            NEU<span className="text-retro-blue">TRON</span> 2024
+            NEU<span className="text-retro-blue">TRON</span> 2025
           </h1>
           <div className="h-20 flex items-center justify-center">
             <p className="terminal-text text-retro-green">
@@ -45,20 +79,37 @@ const Hero = () => {
         </div>
         
         <div className="max-w-2xl mb-12 border border-retro-blue/30 bg-retro-darkblue/60 p-6 rounded-sm">
-          <p className="terminal-text text-white/80 mb-4">
+          <p className="terminal-text text-white/80 mb-6">
             Join us for a mind-bending journey through technology, innovation, and creativity.
             Experience the fusion of past and future in this unique retro-themed tech extravaganza.
           </p>
-          <div className="flex justify-center space-x-2 text-retro-yellow terminal-text text-sm">
+          
+          {/* Larger Countdown Timer */}
+          <div className="grid grid-cols-4 gap-2 md:gap-4 mb-4">
+            <div className="countdown-block">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-retro text-retro-green mb-1">{timeLeft.days.toString().padStart(2, '0')}</div>
+              <div className="terminal-text text-xs md:text-sm text-retro-blue uppercase">Days</div>
+            </div>
+            
+            <div className="countdown-block">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-retro text-retro-green mb-1">{timeLeft.hours.toString().padStart(2, '0')}</div>
+              <div className="terminal-text text-xs md:text-sm text-retro-blue uppercase">Hours</div>
+            </div>
+            
+            <div className="countdown-block">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-retro text-retro-green mb-1">{timeLeft.minutes.toString().padStart(2, '0')}</div>
+              <div className="terminal-text text-xs md:text-sm text-retro-blue uppercase">Mins</div>
+            </div>
+            
+            <div className="countdown-block">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-retro text-retro-green mb-1">{timeLeft.seconds.toString().padStart(2, '0')}</div>
+              <div className="terminal-text text-xs md:text-sm text-retro-blue uppercase">Secs</div>
+            </div>
+          </div>
+          
+          <div className="text-center terminal-text text-sm text-retro-yellow">
             <span className="text-retro-blue">&lt;</span>
-            <span className="text-retro-green">02</span>
-            <span>DAYS</span>
-            <span className="text-retro-blue">:</span>
-            <span className="text-retro-green">12</span>
-            <span>HOURS</span>
-            <span className="text-retro-blue">:</span>
-            <span className="text-retro-green">45</span>
-            <span>MINUTES</span>
+            <span>NEUTRON 2025 | APRIL 12</span>
             <span className="text-retro-blue">&gt;</span>
           </div>
         </div>
