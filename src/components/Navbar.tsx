@@ -35,9 +35,16 @@ const Navbar = () => {
       <div className="retro-container flex justify-between items-center">
         <Link 
           to="/" 
-          className="font-retro text-retro-blue text-xl md:text-2xl hover:animate-text-flicker"
+          className="flex items-center hover:animate-text-flicker"
         >
-          TECH<span className="text-retro-pink">FEST</span> '24
+          <img 
+            src="/lovable-uploads/091599ca-dd1e-413f-90e2-6e0d0141d700.png" 
+            alt="Neutron Logo" 
+            className="h-10 mr-2" 
+          />
+          <span className="font-retro text-retro-blue text-xl md:text-2xl">
+            NEU<span className="text-retro-pink">TRON</span> '24
+          </span>
         </Link>
 
         {/* Desktop Navigation */}

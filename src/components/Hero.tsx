@@ -27,9 +27,14 @@ const Hero = () => {
       <div className="scanline"></div>
       
       <div className="relative z-10 retro-container flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
-        <div className="mb-8">
+        <div className="flex flex-col items-center mb-8">
+          <img 
+            src="/lovable-uploads/091599ca-dd1e-413f-90e2-6e0d0141d700.png" 
+            alt="Neutron Logo" 
+            className="h-24 md:h-32 mb-4 animate-glow-pulse" 
+          />
           <h1 className="retro-title text-retro-pink mb-2 animate-glow-pulse">
-            TECH<span className="text-retro-blue">FEST</span> 2024
+            NEU<span className="text-retro-blue">TRON</span> 2024
           </h1>
           <div className="h-20 flex items-center justify-center">
             <p className="terminal-text text-retro-green">

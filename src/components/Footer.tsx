@@ -6,8 +6,15 @@ const Footer = () => {
     <footer className="bg-retro-darkblue border-t-2 border-retro-blue/30 py-12">
       <div className="retro-container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="font-pixel text-retro-blue mb-4">TECH<span className="text-retro-pink">FEST</span> '24</h3>
+          <div className="flex flex-col items-start">
+            <div className="flex items-center mb-4">
+              <img 
+                src="/lovable-uploads/091599ca-dd1e-413f-90e2-6e0d0141d700.png" 
+                alt="Neutron Logo" 
+                className="h-8 mr-2" 
+              />
+              <h3 className="font-pixel text-retro-blue">NEU<span className="text-retro-pink">TRON</span> '24</h3>
+            </div>
             <p className="terminal-text text-white/70 mb-4">
               The ultimate retro-futuristic college tech fest experience. A journey through technology, creativity, and innovation.
             </p>
@@ -70,7 +77,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-retro-green">&gt;</span>
-                <span className="text-white/70">techfest@college.edu</span>
+                <span className="text-white/70">neutron@college.edu</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-retro-green">&gt;</span>
@@ -82,7 +89,7 @@ const Footer = () => {
         
         <div className="border-t border-retro-blue/30 pt-8 text-center">
           <p className="terminal-text text-white/50">
-            &copy; {new Date().getFullYear()} TECHFEST '24. All rights reserved.
+            &copy; {new Date().getFullYear()} NEUTRON '24. All rights reserved.
           </p>
         </div>
       </div>
